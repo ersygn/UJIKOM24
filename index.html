@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Alat Kesehatan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        #hero {
+            position: relative;
+            height: 70vh; 
+            background: #c0f9e2; 
+        }
+        #hero .animated {
+            animation: up-down 2s ease-in-out infinite alternate-reverse both;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes up-down {
+            0% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(10px);
+            }
+        }
+        .icon-cart {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; 
+        }
+        .item {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .item img {
+            width: 100%; 
+            max-width: 170px; 
+            height: auto;
+        }
+        .listProduct {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .item-category {
+            width: 100%;
+            text-align: center; 
+            margin: 20px 0;
+        }
+        @media (max-width: 1200px) {
+            .item {
+                flex: 1 1 30%;
+            }
+        }
+        @media (max-width: 768px) {
+            .item {
+                flex: 1 1 45%; 
+            }
+        }
+        @media (max-width: 576px) {
+            .item {
+                flex: 1 1 100%;
+            }
+            #hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+        .popup {
+            display: none;
+            position: fixed; /* Use fixed to overlay content */
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+        .popup-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .popup-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .popup-content p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="text-black py-3 d-flex justify-content-between align-items-center fixed-top" style="background-color: #9ddeb0;">
+        <p class="mb-0" style="font-size: large; font-weight: bold; padding-left: 40px;">SEHAT KUY</p>
+        <div class="icon-cart" style="padding-right: 40px;">
+            <a href="login.html">
+                <svg aria-hidden="true" fill="none" viewBox="0 0 18 20" width="24" height="24" style="color: black;">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                </svg>                
+            </a>
+        </div>
+    </nav>
+    
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <h1 style="font-weight: bold; font-size: xx-large; margin-top: 15%;">Welcome to the Medical Equipment Store Website</h1>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="img/dok.png" class="img-fluid animated" alt="" style="width: 85%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"> 
+        <header>
+            <div class="title text-center" style="text-decoration: underline; ">PRODUCT PAGE</div>
+        </header>
+        <div class="listProduct">
+            <div class="item">
+                <img src="img/1S.png" alt="">
+                <h2>STETOSKOP</h2>
+                <div class="price">Rp.25000</div>
+                <button class="view" onclick="showPopup('STETOSKOP', 'Rp25000', 'A stethoscope is a tool used by medical personnel to listen to the sounds of organs inside the body, such as the heartbeat, pulse, digestive organs, and lungs.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item">
+                <img src="img/2.png" alt="">
+                <h2>THERMOMETER</h2>
+                <div class="price">Rp.15000</div>
+                <button class="view" onclick="showPopup('THERMOMETER', 'Rp15000', 'This thermometer displays body temperature with numbers on its screen, making it practical and easy to use.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item">
+                <img src="img/3.png" alt="">
+                <h2>TENSIMETER</h2>
+                <div class="price">Rp.35000</div>
+                <button class="view" onclick="showPopup('TENSIMETER', 'Rp35000', 'A tensiometer or sphygmomanometer is a measuring instrument made to measure blood pressure.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item">
+                <img src="img/4.png" alt="">
+                <h2>WHEEL CHAIR</h2>
+                <div class="price">Rp.105000</div>
+                <button class="view" onclick="showPopup('WHEEL CHAIR', 'Rp105000', 'assisting the mobility of someone who is impaired or unable to walk due to illness, injury, or age. The use of a wheelchair also depends on the mobility impairment experienced by the patient, whether temporary or permanent.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item">
+                <img src="img/5.png" alt="">
+                <h2>KRUK</h2>
+                <div class="price">Rp.75000</div>
+                <button onclick="showPopup('KRUK', 'Rp75000', 'This crutch serves to reduce the weight load that was previously supported by your two legs.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item">
+                <img src="img/6.png" alt="">
+                <h2>WALKER</h2>
+                <div class="price">Rp.90000</div>
+                <button class="view" onclick="showPopup('WALKER', 'Rp90000', 'The walker also has four legs that help the user balance when standing and walking.')">View</button>
+                <button class="addCart" onclick="window.location.href='login.html';">Buy</button>
+            </div>
+            <div class="item-category">
+                <label style="font-size: large; font-weight: bold;">Product Category :</label>
+                <p><a href="index.html" style="color: black;">All Product</a></p>
+                <p><a href="alatbantujalan.html" style="color: black;">Fisioterapi</a></p>
+                <p><a href="alatmedis.html" style="color: black;">Medical Equipment</a></p>
+            </div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <h2 id="popup-title">Product Title</h2>
+                    <p id="popup-price">Price: </p>
+                    <p id="popup-description">Product description goes here...</p>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
+    <footer class="text-black text-center py-3" style="background-color: #9ddeb0; font-size: small;">
+        <p class="mb-0">&copy; 2024 OSS-Toko Alat Kesehatan. Ujikom.</p>
+    </footer>
+    <script>
+        // Function to show popup
+        function showPopup(title, price, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-price').innerText = 'Price: ' + price;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('popup').style.display = 'block';
+        }
+    
+        // Function to close popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out',
+        });
+    </script>
+</body>
+</html>
